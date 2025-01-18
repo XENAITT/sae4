@@ -3,7 +3,92 @@
 {% block title %}E-Portfolio{% endblock %}
 
 {% block body %}
-<h1>E-Portfolio</h1>
-<p>Bienvenue dans votre E-Portfolio.</p>
-{% endblock %}
+<h1>Bienvenue dans votre E-Portfolio</h1>
+<br>
+<div class="resume-section">
+    <h1></h1>
+    <div class="content">
+        <!-- Section pour le résumé -->
+        <h2>Un outil numérique pour valoriser ses compétences et réalisations</h2>
+        <p>L'e-portfolio est un outil, un environnement numérique qui intègre la démarche du portfolio.<br>On y retrouve toutes nos compétences et nos réalisations, année après année. Il nous permet de suivre nos progrès et de présenter nos compétences dans certains domaines à une personne externe.</p>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-6 order-md-2">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('images/image1.png') }}" class="d-block w-100" alt="Description 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p>Image 1</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('images/image2.png') }}" class="d-block w-100" alt="Description 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p>Image 2</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('images/image3.png') }}" class="d-block w-100" alt="Description 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p>Image 3</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="col-md-6 order-md-1">
+        <div class="carousel-text">
+            <div class="carousel-item active">
+                <h3>Le portfolio</h3>
+                <p>Nous pouvons y voir seulement une partie de celui-ci, afin d'avoir un aperçu de son apparence.<br>On y trouve les compétences, les apprentissages critiques, le niveau que l'on a dans chaque domaine, ainsi que les preuves et les analyses réflexives.</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Document de preuve</h3>
+                <p>Ce document permet de savoir ce que l'on a accompli dans cette compétence.</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Analyse réflexive</h3>
+                <p>Ce document nous permet de mettre en avant nos points forts, mais aussi nos lacunes, et de déterminer ce sur quoi nous devons travailler pour réussir à combler ce qui nous manque.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="learn-more mt-5">
+    <h3>Si vous souhaitez voir le document complet, cliquez sur le boutton ci-dessous</h3>
+    <a href="https://docs.google.com/spreadsheets/d/1Nz3pbCQBIdE8OHXDl7Gvq1NqGhoOi3OZAxUq4xK7NgI/edit?pli=1&gid=0#gid=0" target="_blank" class="btn btn-primary">Cliquez ici pour plus d'informations</a>
+</div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var carousel = document.querySelector('#carouselExampleIndicators');
+        var carouselText = document.querySelector('.carousel-text');
+        carousel.addEventListener('slide.bs.carousel', function (event) {
+            var activeIndex = event.to;
+            var items = carouselText.querySelectorAll('.carousel-item');
+            items.forEach(function(item, index) {
+                if (index === activeIndex) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

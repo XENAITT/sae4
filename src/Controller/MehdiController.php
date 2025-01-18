@@ -44,8 +44,26 @@ class MehdiController extends AbstractController
      */
     public function eportfolio(): Response
     {
-        return $this->render('mehdi/eportfolio.html.twig', [
+        return $this->render('mehdi/eportoflio.html.twig', [
             'title' => "E-Portfolio",
+        ]);
+    }
+    /**
+     * @Route("/cv-detail", name="app_cv_detail")
+     */
+    public function cvDetail(): Response
+    {
+        return $this->render('mehdi/cv_detail.html.twig', [
+            'title' => "CV Détail",
+        ]);
+    }
+    /**
+     * @Route("/moi", name="app_moi")
+     */
+    public function about(): Response
+    {
+        return $this->render('mehdi/moi.html.twig', [
+            'title' => "En savoir plus sur moi",
         ]);
     }
 }

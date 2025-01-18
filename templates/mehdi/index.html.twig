@@ -1,20 +1,104 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MehdiController!{% endblock %}
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .flip-card {
+        background-color: transparent;
+        width: 100%;
+        height: 200px;
+        perspective: 1000px;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+    }
+
+    .flip-card-front {
+        background-color: #bbb;
+        color: black;
+    }
+
+    .flip-card-back {
+        background-color: #2980b9;
+        color: white;
+        transform: rotateY(180deg);
+    }
+</style>
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container mt-5">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to my website</h1>
+        <hr class="my-4">
+        <p>Hello, I present to you my website where you can learn everything about me, or at least a large part of it. As you can see, there are three cards. By hovering over them, you will be able to see three pieces of information: my last name, my first name, and finally, the TP group I belong to.I am a student in computer science, more specifically in Networks and Telecommunications at the IUT of Roanne. Currently in my first year, I am passionate about technologies, particularly artificial intelligence, although my preference leans towards cybersecurity.On this website, you can view my CV as well as my e-portfolio, which will allow you to discover my skills and professional experiences.</p>
+    </div>
 
-<div class="example-wrapper">
-    <h1>Bonjour {{ controller_name }}! ✅</h1>
+    <div class="row text-center mt-5">
+        <div class="col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        R&T
+                    </div>
+                    <div class="flip-card-back">
+                        Benyettou
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        R&T
+                    </div>
+                    <div class="flip-card-back">
+                        Mehdi
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        R&T
+                    </div>
+                    <div class="flip-card-back">
+                        Groupe B1
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/MEHDI/projet2_symfony/src/Controller/MehdiController.php'|file_link(0) }}">src/Controller/MehdiController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/MEHDI/projet2_symfony/templates/mehdi/index.html.twig'|file_link(0) }}">templates/mehdi/index.html.twig</a></code></li>
-    </ul>
+    <div class="text-center mt-5">
+    <p>If you would like to learn more about me, I invite you to click on the button that appears below, which will redirect you directly to the "Learn more about me" section.</p>
+        <a href="/moi" class="btn btn-primary">En savoir plus</a>
+    </div>
 </div>
 {% endblock %}
