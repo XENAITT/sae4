@@ -14,7 +14,7 @@ class MehdiController extends AbstractController
     public function index(): Response
     {
         return $this->render('mehdi/index.html.twig', [
-            'controller_name' => 'MehdiController',
+            'controller_name' => 'Mehdi',
         ]);
     }
     /**
